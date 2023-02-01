@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,40 +15,40 @@
     <link rel="stylesheet" href="./css/combat.css" />
     <link rel="stylesheet" href="./css/media_querie.css" />
 </head>
+
 <body>
     <h1>Combat</h1>
-    <h2 id="statusGame" >Current attacker: <span></span></h2>
+    <h2 id="statusGame">Current attacker: <span></span></h2>
 
     <div class="container-combat">
 
-<div class="warriors">
-    <div id="monsterPic" class="monster-pic"></div>
-    <div id="playerPic" class="player-pic"></div>
-</div>
+        <div class="warriors">
+            <div id="monsterPic" class="monster-pic"></div>
+            <div id="playerPic" class="player-pic"></div>
+        </div>
 
 
 
-<div class="combat-info">
-<p id="playerName" class="p-name">Name:</p>
-<!-- <p id="playerLife" class="p-life">Life:</p> -->
-<div id="playerLife" class="w3-light-grey w3-xlarge" style="width: 34vw;">
-  <div class="w3-container w3-red p-life" >30%</div>
-</div>
+        <div class="combat-info">
+            <p id="playerName" class="p-name">Name:</p>
+            <div id="playerLife" class="w3-light-grey w3-xlarge" style="width: 34vw;">
+                <div class="w3-container w3-red p-life">30%</div>
+            </div>
 
-<p id="monsterName" class="p-name">Name:</p>
-<!-- <p id="monsterLife" class="p-life">Life:</p> -->
-<div id="monsterLife" class="w3-light-grey w3-xlarge" style="width: 34vw;">
-    <div class="w3-container w3-red p-life" >30%</div>
-  </div>
+            <p id="monsterName" class="p-name">Name:</p>
+            <div id="monsterLife" class="w3-light-grey w3-xlarge" style="width: 34vw;">
+                <div class="w3-container w3-red p-life">30%</div>
+            </div>
+
+        </div>
+
+
+        <div class="warriors-control">
+            <button id="attackBtn" class="attack-btn">Attack</button>
+            <button id="runAwayBtn" class="runAway-btn">Run Away</button>
+        </div>
 
     </div>
-
-
-    <div class="warriors-control">
-        <button  id="attackBtn" class="attack-btn">Attack</button>
-        <button id="runAwayBtn" class="runAway-btn">Run Away</button>
-    </div>
-
-</div>
 </body>
+
 </html>
