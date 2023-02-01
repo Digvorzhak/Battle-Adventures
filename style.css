@@ -1,0 +1,51 @@
+body {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-image: url("/wall.jpg");
+  background-repeat: no-repeat, center;
+  /* display: block; */
+}
+.all {
+  width: 100vw;
+  /* justify-content: space-between; */
+  align-items: space-between;
+  display: flex;
+}
+.playerCreation {
+  color: white;
+  font-size: 8rem;
+  text-align: center;
+  margin-top: 0;
+}
+.form {
+  /* position: absolute; */
+  width: 10%;
+  height: 10%;
+  color: white;
+  font-size: 2rem;
+}
+.monster {
+  /* position: relative; */
+}
+ul {
+  position: absolute;
+  display: flex;
+  /* align-content: space-between; */
+  width: 10%;
+}
+li {
+  position: relative;
+  display: block;
+  color: rgb(221, 50, 24);
+  margin: auto;
+  border: 2px solid rgb(0, 2, 4);
+  list-style: none;rgb(1, 4, 0)rgb(46, 162, 7)
+  /* background-color: blanchedalmond; */
+}
+p {
+  color: white;
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 0%;
+}
