@@ -53,7 +53,7 @@ h2{
 .combat-info{
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 35vw);
 
     justify-content: center;
     padding-left: 15vw;
