@@ -1,19 +1,21 @@
-
-html{
+html {
     background-color: white;
 
 }
-h1{
+
+h1 {
     text-align: center;
     line-height: 2rem;
     font-size: 3rem;
 }
-h2{
+
+h2 {
     text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
 }
-.warriors{
+
+.warriors {
     display: grid;
     grid-template-columns: repeat(2, 35vw);
     justify-content: center;
@@ -23,7 +25,7 @@ h2{
     position: relative;
 }
 
-.monster-pic{
+.monster-pic {
 
     background-image: url(../assets/images/a.png);
     min-height: 30rem;
@@ -31,14 +33,14 @@ h2{
     background-size: cover;
 }
 
-.player-pic{
+.player-pic {
     background-image: url(../assets/images/b.png);
     min-height: 30rem;
     background-position: center center;
     background-size: cover;
 }
 
-.warriors-control{
+.warriors-control {
 
     display: grid;
     grid-template-columns: repeat(2, 35vw);
@@ -50,7 +52,7 @@ h2{
 
 }
 
-.combat-info{
+.combat-info {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 35vw);
@@ -64,33 +66,33 @@ h2{
 
 }
 
-.combat-info p{
+.combat-info p {
     font-size: 1.7rem;
     font-weight: 400;
     text-align: center;
 }
 
-.p-life{
+.p-life {
     width: 30%;
 }
 
-p:nth-child(1){
+p:nth-child(1) {
     grid-area: 1 / 1 / 2 / 1;
 }
 
-p:nth-child(2){
+p:nth-child(2) {
     grid-area: 2 / 1 / 3 / 1;
 }
 
-p:nth-child(3){
+p:nth-child(3) {
     grid-area: 1 / 2 / 2 / 2;
 }
 
-p:nth-child(4){
+p:nth-child(4) {
     grid-area: 2 / 2 / 3 / 2;
 }
 
-.warriors-control button{
+.warriors-control button {
 
     padding-left: 1rem;
     padding-right: 1rem;
@@ -104,13 +106,12 @@ p:nth-child(4){
     cursor: pointer;
 }
 
-.warriors-control button:hover{
+.warriors-control button:hover {
     color: red;
 
 }
 
-.warriors-control button:active{
-        transform: translateY(0.1rem);
-    
-}
+.warriors-control button:active {
+    transform: translateY(0.1rem);
 
+}
