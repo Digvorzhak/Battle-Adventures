@@ -6,35 +6,29 @@ const playerStr = document.getElementById("strength");
 const Enemies = [];
 let dices = [0, 0];
 let attackDice = 0;
+
 class Enemy {
   health = 100;
   strength = 10;
   image = null;
   GoldReward = 0;
   XPReward = 0;
-  monstersLvl = 1;
+  lvl = 1;
   name = "Enemy";
   id = 0;
-  dexterity = 0;
-  constructor(id, name, health, strength, imageURL, GoldReward, XPReward, monstersLvl, dexterity) {
+  dex = 0;
+
+  constructor(id, name, health, str, imageURL, GoldReward, XPReward, lvl, dex) {
     this.id = id;
     this.name = name;
     this.health = health;
-    this.strength = strength;
+    this.str = str;
     this.image = imageURL;
     this.GoldReward = GoldReward;
     this.XPReward = XPReward;
-    this.monstersLvl = monstersLvl;
-    this.dexterity = dexterity;
-  }
-  dmgCalc(player) {
-    let attackPower = 0;
-    attackDice = Math.trunc(Math.random() * 20) + 1;
-    attackPower = (this.strength + attackDice) * this.monstersLvl - player.defense;
-    if (attackPower <= 0) return startDecider(player, this);
-    player.health -= attackPower;
-    if (player.health > 0) return startDecider(this, player);
-    if (player.health > 0) return startDecider(player, this);
+    this.lvl = lvl;
+    this.dex = dex;
+    
   }
 
   hitPlayer(player) {
@@ -47,22 +41,28 @@ class Enemy {
   die(EnemiesArray) {
     EnemiesArray.splice((e) => e.id !== this.id);
   }
-}
+}//class Enemy
+
 class Player {
   name = "Player 1";
   defense = 0;
-  Strength = 10;
+  str = 10;
   image = null;
-  dexterity = 0;
+  dex = 0;
   health = 100;
-  constructor(name, dexterity, defense, strength, health, imageURL) {
+
+  constructor(name, dexterity, defense, str, health, imageURL, lvl, def) {
     this.name = name;
     this.defense = defense;
-    this.strength = strength;
+    this.str = str;
     this.image = imageURL;
     this.dexterity = dexterity;
     this.health = health;
+    this.lvl = lvl;//
+    this.def = def;//
+
   }
+
   hitEnemy(enemy) {
     enemy.health -= this.Strength;
     if (player.health < 0) player.die();
@@ -74,21 +74,27 @@ class Player {
   loseGame() {
     mainMenu();
   }
-}
+}//class player
+
+
+
 const mainMenu = () => {
   window.location.href = "./mainMenu.html";
 };
 const runAway = () => {
   window.history.back();
 };
+
 const playerImages = [];
 let currentPlayerImage = 0;
+
 const changeToNextImage = () => {
   document.getElementById("prevImageButton").disabled = false;
   const button = document.getElementById("nextImageButton");
   button.url = playerImages[currentPlayerImage++];
   if (currentPlayerImage >= playerImages.length) button.disabled = true;
 };
+
 const changeToPrevImage = () => {
   document.getElementById("nextImageButton").disabled = false;
   const button = document.getElementById("prevImageButton");
@@ -96,48 +102,49 @@ const changeToPrevImage = () => {
   if (currentPlayerImage == 0) button.disabled = true;
 };
 
-const createPlayer = (e) => {
-  console.log(e);
+
+const createPlayer = () => {
+
   const player = new Player(playerName.value, +playerDex.value, +playerDef.value, +playerStr.value, 1000);
   localStorage.setItem("player", JSON.stringify(player));
   window.location.href = "./combat.html";
 };
 
 const initEnemies = () => {
-  const monster1 = new Enemy(1, "Alien", 100);
+  const monster = new Enemy(1, "Alien", 100);
 };
 
-// function startDecider(player, monster) {
-//   dices[0] = Math.trunc(Math.random() * 20) + 1;
-//   dices[1] = Math.trunc(Math.random() * 20) + 1;
-//   player.dex += dices[0];
-//   monster.dex += dices[1];
-//   if (player.dex > monster.dex) return player.dmgCalc(player, monster, true);
-//   if (player.dex < monster.dex) return monster.dmgCalc(monster, player, false);
-//   // console.log("draw");
-//   return startDecider(player, monster);
-// }
 
-function startDecider({ player, monster }) {
-  dices[0] = Math.trunc(Math.random() * 20) + 1;
-  dices[1] = Math.trunc(Math.random() * 20) + 1;
+let player = new Player(playerName.value, +playerDex.value, +playerDef.value, +playerStr.value, 1000);
+let monster = new Enemy(1, "Alien", 100);
+
+startDecider(player, monster);
+
+
+function startDecider( player, monster ) {
+
+while( player.health !== 0 || monster.health !== 0){
+
+  do {
+    dices[0] = Math.trunc(Math.random() * 20) + 1;
+    dices[1] = Math.trunc(Math.random() * 20) + 1;
+  } while(player.dex + dices[0] === monster.dex + dices[1])
+
   player.dex += dices[0];
-  monster.dex += dices[1];
-  if (player.dex > monster.dex) return fightCalc({ attacker: player, defender: monster });
-  if (player.dex < monster.dex) return fightCalc({ attacker: monster, defender: player });
-  return startDecider(player, monster);
+  monster.dex += dices[1];  
+
+  if (player.dex > monster.dex)  fightCalc(player, monster);
+  if (player.dex < monster.dex)  fightCalc(monster, player);
+}
 }
 
-startDecider({ player: mihile, monster: gromp });
-console.log(dices);
-console.log(mihile);
-console.log(gromp);
 
-function fightCalc({ attacker, defender }) {
+function fightCalc( attacker, defender ) {
+
   let attackPower = 0;
-  attackDice = Math.trunc(Math.random() * 20) + 1;
+  let attackDice = Math.trunc(Math.random() * 20) + 1;
+
   attackPower = (attacker.str + attackDice) * attacker.lvl - defender.def;
-  if (attackPower < 0) return console.log("");
-  defender.hp -= attackPower;
-  if (defender.hp > 0) return startDecider({ player: attacker, defender: monster });
+   defender.health -= attackPower;
 }
+
