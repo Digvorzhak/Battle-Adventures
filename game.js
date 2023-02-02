@@ -31,7 +31,6 @@ function startDecider({ player, monster }) {
   monster.dex += dices[1];
   if (player.dex > monster.dex) return fightCalc({ attacker: player, defender: monster });
   if (player.dex < monster.dex) return fightCalc({ attacker: monster, defender: player });
-  // console.log("draw");
   return startDecider(player, monster);
 }
 
