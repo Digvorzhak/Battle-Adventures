@@ -1,51 +1,68 @@
-body {
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background-image: url("/wall.jpg");
-  background-repeat: no-repeat, center;
-  /* display: block; */
-}
-.all {
-  width: 100vw;
-  /* justify-content: space-between; */
-  align-items: space-between;
-  display: flex;
-}
 .playerCreation {
   color: white;
   font-size: 8rem;
   text-align: center;
   margin-top: 0;
 }
-.form {
-  /* position: absolute; */
-  width: 10%;
-  height: 10%;
-  color: white;
-  font-size: 2rem;
-}
-.monster {
-  /* position: relative; */
-}
-ul {
-  position: absolute;
-  display: flex;
-  /* align-content: space-between; */
-  width: 10%;
-}
-li {
+body {
   position: relative;
-  display: block;
-  color: rgb(221, 50, 24);
+  background-image: url("/wall.jpg");
+  background-repeat: no-repeat, center;
+  height: 80vh;
+}
+.all {
+  /* justify-content: space-between; */
+  align-items: space-between;
+  display: flex;
+  width: 100%;
+  position: absolute;
+}
+.playerCreation {
+  color: white;
+  font-size: 8rem;
+  text-align: center;
+  margin-top: 0%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 1.5rem;
+}
+input {
+  border-radius: 50px;
+  background-color: rgba(18, 22, 21, 0.5);
+}
+
+.monster {
+  width: 100%;
+  position: relative;
+}
+
+li {
+  color: rgb(255, 255, 255);
   margin: auto;
-  border: 2px solid rgb(0, 2, 4);
-  list-style: none;rgb(1, 4, 0)rgb(46, 162, 7)
+  /* border: 2px solid rgb(0, 2, 4); */
+  list-style: none;
+
   /* background-color: blanchedalmond; */
 }
-p {
+ol {
+  display: flex;
+  border: 2px solid rgb(255, 255, 255);
+}
+.diraction {
+  width: 50%;
+  align-content: space-between;
+}
+
+.footer {
+  position: relative;
   color: white;
   font-size: 4rem;
   text-align: center;
-  margin-bottom: 0%;
+  width: 50%;
+  border: 2px solid rgb(107, 107, 22);
+  margin: auto;
+  margin-top: 50vh;
 }
